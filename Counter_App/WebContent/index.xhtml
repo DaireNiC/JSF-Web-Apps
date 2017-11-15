@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+  >
+  
+  <h:head>
+    <title>Counter</title>
+  </h:head>
+  
+  <h:body>
+  <h3>X = #{counter.x}</h3>
+    <h:form>
+      <h:commandButton value="Increment X" action="#{counter.incrementX}"/>
+   </h:form>
+  </h:body>
+</html>
