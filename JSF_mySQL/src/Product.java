@@ -1,0 +1,42 @@
+import java.util.ArrayList;
+
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+
+@ManagedBean
+@SessionScoped 
+public class Product {
+
+	private int productID;
+	private String productDescription;
+	
+	private ArrayList<String> productList;
+	
+	public Product (){
+		super();
+	}
+	
+	public int getProductID() {
+		return productID;
+	}
+	public void setProductID(int productID) {
+		this.productID = productID;
+	}
+	public String getProductDescription() {
+		return productDescription;
+	}
+	public void setProductDescription(String productDescription) {
+		this.productDescription = productDescription;
+	}
+
+	public ArrayList<String> getProductList() {
+		return productList;
+	}
+
+	public void setProductList(ArrayList<String> productList) {
+		this.productList = productList;
+	}
+	public void addItem(){
+		this.productList.add(this.product);
+	}
+}
