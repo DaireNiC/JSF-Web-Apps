@@ -1,0 +1,60 @@
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+import java.sql.Connection;
+
+
+public class DAO {
+ 
+	MysqlDataSource mysqlDS = new MysqlDataSource();
+	
+	public DAO() throws Exception {
+	     Context context = new InitialContext();
+	     String jndiName = "java:comp/env/jdbc/employeesDB14.SQL";
+	     setMysqlDS((DataSource) context.lookup(jndiName));
+	}
+	
+	public DataSource getMysqlDS() {
+		return mysqlDS;
+	}
+	
+	public void setMysqlDS(DataSource mysqlDS) {
+		this.mysqlDS = mysqlDS;
+	}
+	
+	public void getProducts(String jndiName) {
+		
+		
+		mysqlDS.setURL(jndiName);
+		mysqlDS.setUser("root");
+		mysqlDS.setPassword("");
+		
+		// Establish connection
+		Connection conn = mysqlDS.getConnection();
+		
+		// Statement Creation
+		Statement myStmt = conn.createStatement(
+		ResultSet.TYPE_SCROLL_INSENSITIVE, //make obj scrollable
+		ResultSet.CONCUR_UPDATABLE); 
+		//SQL query
+		String query = "select PRODID, DESCRIP"
+				+ " from product";
+		
+		// Execute Query
+		ResultSet rs = myStmt.executeQuery(query);
+		
+		while( rs.next() ) {
+			Product p = new Product();
+			p.setProductID(rs.getInt("PRODID"));
+			p.setProductDescription( rs.getString("DESCRIP")); 
+		}
+		
+		
+		//Close the connection
+		conn.close();
+		myStmt.close();
+		rs.close();
+		}
+
+}
+

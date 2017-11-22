@@ -1,0 +1,48 @@
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+public class DAO {
+ 
+private DataSource mysqlDS;
+
+ public DAO() throws Exception {
+     Context context = new InitialContext();
+     String jndiName = "java:comp/env/jdbc/employeesDB14.SQL";
+     mysqlDS = (DataSource) context.lookup(jndiName);
+}
+
+
+public void getProducts() throws SQLException {
+	
+	// Establish connection
+	Connection conn = mysqlDS.getConnection();
+	
+	// Statement Creation
+	Statement myStmt = conn.createStatement();
+			
+	//SQL query
+	 String query = "select PRODID, DESCRIP"
+			+ " from product";
+	
+	// Execute Query
+	ResultSet rs = myStmt.executeQuery(query);
+	ArrayList<Product> productlist = new ArrayList<Product>();
+	while( rs.next() ) {
+		Product p = new Product();
+		p.setProductID(rs.getInt("PRODID"));
+		p.setProductDescription( rs.getString("DESCRIP")); 
+		productlist.add(p);
+	}
+	}
+return productlist
+
+}
+

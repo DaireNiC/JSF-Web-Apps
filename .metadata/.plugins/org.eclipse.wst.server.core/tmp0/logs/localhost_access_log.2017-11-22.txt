@@ -1,0 +1,9 @@
+127.0.0.1 - - [22/Nov/2017:10:18:48 +0000] "GET / HTTP/1.1" 404 1081
+0:0:0:0:0:0:0:1 - - [22/Nov/2017:10:18:49 +0000] "GET /JSF_mySQL/faces/index.xhtml HTTP/1.1" 500 2909
+127.0.0.1 - - [22/Nov/2017:10:20:02 +0000] "GET / HTTP/1.1" 404 1081
+0:0:0:0:0:0:0:1 - - [22/Nov/2017:10:20:02 +0000] "GET /JSF_mySQL/faces/index.xhtml HTTP/1.1" 500 6442
+127.0.0.1 - - [22/Nov/2017:10:22:55 +0000] "GET / HTTP/1.1" 404 1081
+0:0:0:0:0:0:0:1 - - [22/Nov/2017:10:22:58 +0000] "GET /JSF_mySQL/faces/index.xhtml HTTP/1.1" 500 10965
+0:0:0:0:0:0:0:1 - - [22/Nov/2017:10:27:26 +0000] "GET /JSF_mySQL/faces/index.xhtml HTTP/1.1" 500 2469
+0:0:0:0:0:0:0:1 - - [22/Nov/2017:10:28:11 +0000] "GET /JSF_mySQL/faces/index.xhtml HTTP/1.1" 500 2439
+0:0:0:0:0:0:0:1 - - [22/Nov/2017:10:28:46 +0000] "GET /JSF_mySQL/faces/index.xhtml HTTP/1.1" 200 314

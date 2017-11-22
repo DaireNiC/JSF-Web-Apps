@@ -9,8 +9,7 @@ public class Product {
 
 	private int productID;
 	private String productDescription;
-	
-	private ArrayList<String> productList;
+
 	
 	public Product (){
 		super();
@@ -27,16 +26,5 @@ public class Product {
 	}
 	public void setProductDescription(String productDescription) {
 		this.productDescription = productDescription;
-	}
-
-	public ArrayList<String> getProductList() {
-		return productList;
-	}
-
-	public void setProductList(ArrayList<String> productList) {
-		this.productList = productList;
-	}
-	public void addItem(){
-		this.productList.add(this.product);
 	}
 }

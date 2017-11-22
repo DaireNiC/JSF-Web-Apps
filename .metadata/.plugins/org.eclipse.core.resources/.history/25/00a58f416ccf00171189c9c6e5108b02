@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<f:metadata>
+  <f:event type="preRenderView" 
+      listener="#{productController.loadProducts()}"/>
+</f:metadata>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+ >
+  
+  <h:head>
+    <title>Product Details</title>
+  </h:head>
+  <h:body>
+    <h:form>
+       ProductID<h:inputText value="#{Product.newProductID}" p:placeholder="Enter an product ID"/><br></br><br></br>
+       Product Description<h:inputText value="#{Product.newProductDesc}" p:placeholder="Enter an product Description"/><br></br><br>
+      <h:commandButton value="Add" action="#{products.addProduct()}"/>
+   </h:form>
+  </h:body>
+</html>

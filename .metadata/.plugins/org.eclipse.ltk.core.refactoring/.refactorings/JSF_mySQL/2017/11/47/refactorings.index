@@ -1,0 +1,9 @@
+1511342826738	Delete element
+1511343104709	Encapsulate field 'productList'
+1511343203700	Delete element
+1511343218607	Encapsulate field 'mysqlDS'
+1511344959348	Move 'index.xhtml' to 'META-INF'
+1511344964411	Move 'index.xhtml' to 'WebContent'
+1511345037369	Move 'javax.faces-2.2.9.jar' to 'lib'
+1511345041119	Move 'mysql-connector-java-5.1.44-bin.jar' to 'lib'
+1511345046260	Delete element

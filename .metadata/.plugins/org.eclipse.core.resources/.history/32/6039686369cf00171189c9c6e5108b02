@@ -1,0 +1,63 @@
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+
+public class DAO {
+ private DataSource mysqlDS;
+
+ public DAO() throws Exception {
+     Context context = new InitialContext();
+     String jndiName = "java:comp/env/jdbc/employeesDB14.SQL";
+     setMysqlDS((DataSource) context.lookup(jndiName));
+ }
+
+public DataSource getMysqlDS() {
+	return mysqlDS;
+}
+
+public void setMysqlDS(DataSource mysqlDS) {
+	this.mysqlDS = mysqlDS;
+}
+
+public void getProducts(DataSource mysqlDS) {
+	
+	mysqlDS.setURL("jdbc:mysql://localhost:3306/employee_kin");
+	mysqlDS.setUser("root");
+	mysqlDS.setPassword("");
+	
+	// Establish connection
+	Connection conn = mysqlDS.getConnection();
+	
+	// Statement Creation
+	Statement myStmt = conn.createStatement(
+	ResultSet.TYPE_SCROLL_INSENSITIVE, //make obj scrollable
+	ResultSet.CONCUR_UPDATABLE); 
+	//SQL query
+	String query = "select e.ename, k.nok_name, s.salary"
+			+ " from employee_table e"
+			+ " Inner Join next_of_kin_table k"
+			+ " on e.NextOfKin = k.NOK_ID"
+			+ " Inner Join salary s"
+			+ " on e.eid = s.eid";
+	
+	// Execute Query
+	ResultSet rs = myStmt.executeQuery(query);
+	
+	while( rs.next() ) {
+		
+		String e_name = rs.getString("ename");
+		String e_next_of_kin = rs.getString("NOK_NAME");
+		double e_salary = rs.getDouble("salary");
+		System.out.printf("%s, %s %.2f\n",e_name, e_next_of_kin, e_salary );
+		//System.out.println("Town = " + sTown);
+	}
+	
+	
+	//Close the connection
+	conn.close();
+	myStmt.close();
+	rs.close();
+	}
+
+}
+

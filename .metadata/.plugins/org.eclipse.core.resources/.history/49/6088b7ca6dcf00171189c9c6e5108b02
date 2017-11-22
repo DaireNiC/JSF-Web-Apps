@@ -1,0 +1,29 @@
+import java.util.ArrayList;
+
+public class ProductController {
+
+	private DAO dao = new DAO();
+	private ArrayList<Product> productList;
+
+	
+	public ProductController(ArrayList<Product> productList) {
+		super();
+		this.productList = productList;
+	}
+
+	public ArrayList<Product> getProductList() {
+		return productList;
+	}
+
+	public void setProductList(ArrayList<Product> productList) {
+		this.productList = productList;
+	}
+	
+	public void addItem(Product p){
+		this.productList.add(p);	
+	}
+	
+	public void loadProducts(){
+		DAO.getProducts();
+	}
+}

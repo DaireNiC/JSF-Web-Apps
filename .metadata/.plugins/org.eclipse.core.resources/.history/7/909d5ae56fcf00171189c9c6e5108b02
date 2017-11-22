@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:h="http://xmlns.jcp.org/jsf/html"
+  xmlns:p="http://xmlns.jcp.org/jsf/passthrough"
+  xmlns:f="http://xmlns.jcp.org/jsf/core"
+ >
+  
+  <h:head>
+  <f:metadata>
+  <f:event type="preRenderView" 
+      listener="#{productController.loadProducts()}"/>
+</f:metadata>
+  
+    <title>Product Details</title>
+  </h:head>
+  <h:body>
+		  
+		#{productController.productList[0].productID}
+		#{productController.productList[0].description}
+		<br/>
+		#{productController.productList[1].productID}
+		#{productController.productList[1].description}
+		<br/>
+		#{productController.productList[2].productID}
+		#{productController.productList[2].description}
+		<br/>
+		#{productController.productList[3].productID}
+		#{productController.productList[3].description}
+  
+  </h:body>
+</html>
